@@ -20,11 +20,14 @@ var modalImg = document.getElementById("img01");
 var captionText = document.getElementById("caption");
 var i;
 
+function openPicture() {
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  modalImg.alt = this.alt;
+  captionText.innerHTML = this.nextElementSibling.innerHTML;
+
+}
+
 for (i = 0; i < images.length; i++) {
-  images[i].onclick = function() {
-    modal.style.display = "block";
-    modalImg.src = this.src;
-    modalImg.alt = this.alt;
-    captionText.innerHTML = this.nextElementSibling.innerHTML;
-  };
+  images[i].onclick = openPicture;
 }
